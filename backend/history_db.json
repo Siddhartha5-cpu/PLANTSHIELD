@@ -1,0 +1,167 @@
+[
+    {
+        "id": "run-17a9285f",
+        "timestamp": "2026-07-23T13:00:57Z",
+        "deviceId": "ESP32-001",
+        "disease": "hispa",
+        "confidence": 0.6,
+        "variety": "KarnatakaPonni",
+        "estimatedAge": 0.18,
+        "riskScore": 26.82,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-f3a6977f",
+        "timestamp": "2026-07-23T12:49:25Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 10.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-46060c79",
+        "timestamp": "2026-07-18T15:39:28Z",
+        "deviceId": "ESP32-001",
+        "disease": "hispa",
+        "confidence": 0.6,
+        "variety": "KarnatakaPonni",
+        "estimatedAge": 0.18,
+        "riskScore": 26.82,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-f6383a95",
+        "timestamp": "2026-07-17T07:20:28Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 10.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-8e81b574",
+        "timestamp": "2026-07-14T12:04:37Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 10.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-63e52276",
+        "timestamp": "2026-07-14T12:03:55Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 10.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-5755bb7d",
+        "timestamp": "2026-07-14T12:01:46Z",
+        "deviceId": "ESP32-001",
+        "disease": "hispa",
+        "confidence": 0.6,
+        "variety": "KarnatakaPonni",
+        "estimatedAge": 0.18,
+        "riskScore": 26.82,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-c8a8e7f2",
+        "timestamp": "2026-07-14T11:59:31Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 20.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-fe140a68",
+        "timestamp": "2026-07-14T11:40:36Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 20.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-cf755e23",
+        "timestamp": "2026-07-14T11:40:04Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 20.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-ca9f3ef4",
+        "timestamp": "2026-07-14T11:32:19Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 1.0,
+        "variety": "ADT45",
+        "estimatedAge": 0.23,
+        "riskScore": 20.67,
+        "riskLevel": "Low"
+    },
+    {
+        "id": "run-575c9ac0",
+        "timestamp": "2026-07-14T11:31:18Z",
+        "deviceId": "ESP32-001",
+        "disease": "hispa",
+        "confidence": 0.6,
+        "variety": "KarnatakaPonni",
+        "estimatedAge": 0.18,
+        "riskScore": 36.82,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-270e1905",
+        "timestamp": "2026-07-14T08:55:43Z",
+        "deviceId": "ESP32-001",
+        "disease": "hispa",
+        "confidence": 0.6,
+        "variety": "KarnatakaPonni",
+        "estimatedAge": 0.18,
+        "riskScore": 36.82,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-101",
+        "timestamp": "2026-07-14T12:00:00Z",
+        "deviceId": "ESP32-001",
+        "disease": "brown_spot",
+        "confidence": 0.94,
+        "variety": "IR20",
+        "estimatedAge": 45.2,
+        "riskScore": 68.5,
+        "riskLevel": "High"
+    },
+    {
+        "id": "run-102",
+        "timestamp": "2026-07-14T11:30:00Z",
+        "deviceId": "ESP32-001",
+        "disease": "normal",
+        "confidence": 0.99,
+        "variety": "ADT45",
+        "estimatedAge": 22.0,
+        "riskScore": 12.0,
+        "riskLevel": "Low"
+    }
+]

@@ -1,0 +1,19 @@
+{
+  "name": "plantshield-aws-infra",
+  "version": "1.0.0",
+  "description": "AWS CDK project to deploy PlantShield AI sensor telemetry ingestion pipeline",
+  "bin": {
+    "aws-infra": "bin/aws-infra.js"
+  },
+  "scripts": {
+    "cdk": "cdk",
+    "deploy": "cdk deploy",
+    "synth": "cdk synth",
+    "diff": "cdk diff"
+  },
+  "devDependencies": {
+    "aws-cdk": "^2.120.0",
+    "aws-cdk-lib": "^2.120.0",
+    "constructs": "^10.3.0"
+  }
+}

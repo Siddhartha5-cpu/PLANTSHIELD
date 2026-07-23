@@ -1,0 +1,210 @@
+{
+  "/PlantShieldInfraStack": [
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldLatestStateTable": [
+    {
+      "type": "aws:cdk:hasPhysicalName",
+      "data": {
+        "Ref": "PlantShieldLatestStateTable974C1840"
+      }
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldHistoricalTelemetryTable": [
+    {
+      "type": "aws:cdk:hasPhysicalName",
+      "data": {
+        "Ref": "PlantShieldHistoricalTelemetryTableDB9F4ADB"
+      }
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldIngestRule": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldIngestRule"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:51:21)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/LatestStateTableName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LatestStateTableName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:74:5)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/HistoricalTelemetryTableName": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "HistoricalTelemetryTableName"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:79:5)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/LambdaFunctionArn": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "LambdaFunctionArn"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:84:5)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/BootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "BootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/CheckBootstrapVersion": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CheckBootstrapVersion"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldLatestStateTable/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldLatestStateTable974C1840"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Table2 in aws-cdk-lib...",
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:18:30)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldHistoricalTelemetryTable/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldHistoricalTelemetryTableDB9F4ADB"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Table2 in aws-cdk-lib...",
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:26:38)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldTelemetryIngestLambdaC050D50A"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:36:26)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/AllowIotCoreTrigger": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldTelemetryIngestLambdaAllowIotCoreTriggerCD2E0F8F"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...WrappedClass.addPermission in aws-cdk-lib...",
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:67:18)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/CDKMetadata/Default": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "CDKMetadata"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib, node internals...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/ServiceRole/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldTelemetryIngestLambdaServiceRole07020EA7"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...new Function2 in aws-cdk-lib...",
+        "new PlantShieldInfraStack (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\lib\\plantshield-infra-stack.js:36:26)",
+        "<anonymous> (C:\\Users\\MEGHARAJU SAIKIRAN\\.gemini\\antigravity-ide\\scratch\\plantshield-ai\\aws-infra\\bin\\aws-infra.js:6:1)",
+        "...node internals..."
+      ]
+    }
+  ],
+  "/PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/ServiceRole/DefaultPolicy/Resource": [
+    {
+      "type": "aws:cdk:logicalId",
+      "data": "PlantShieldTelemetryIngestLambdaServiceRoleDefaultPolicy1ACCF57D"
+    },
+    {
+      "type": "aws:cdk:creationStack",
+      "data": [
+        "...aws-cdk-lib...",
+        "(no user code in 10 frames, use --stack-trace-limit to capture more)"
+      ]
+    }
+  ]
+}

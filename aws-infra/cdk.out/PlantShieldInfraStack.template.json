@@ -1,0 +1,294 @@
+{
+ "Resources": {
+  "PlantShieldLatestStateTable974C1840": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "deviceId",
+      "AttributeType": "S"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "KeySchema": [
+     {
+      "AttributeName": "deviceId",
+      "KeyType": "HASH"
+     }
+    ],
+    "TableName": "PlantShieldLatestState"
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldLatestStateTable/Resource"
+   }
+  },
+  "PlantShieldHistoricalTelemetryTableDB9F4ADB": {
+   "Type": "AWS::DynamoDB::Table",
+   "Properties": {
+    "AttributeDefinitions": [
+     {
+      "AttributeName": "deviceId",
+      "AttributeType": "S"
+     },
+     {
+      "AttributeName": "timestamp",
+      "AttributeType": "S"
+     }
+    ],
+    "BillingMode": "PAY_PER_REQUEST",
+    "KeySchema": [
+     {
+      "AttributeName": "deviceId",
+      "KeyType": "HASH"
+     },
+     {
+      "AttributeName": "timestamp",
+      "KeyType": "RANGE"
+     }
+    ],
+    "TableName": "PlantShieldHistoricalTelemetry",
+    "TimeToLiveSpecification": {
+     "AttributeName": "ttl",
+     "Enabled": true
+    }
+   },
+   "UpdateReplacePolicy": "Delete",
+   "DeletionPolicy": "Delete",
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldHistoricalTelemetryTable/Resource"
+   }
+  },
+  "PlantShieldTelemetryIngestLambdaServiceRole07020EA7": {
+   "Type": "AWS::IAM::Role",
+   "Properties": {
+    "AssumeRolePolicyDocument": {
+     "Statement": [
+      {
+       "Action": "sts:AssumeRole",
+       "Effect": "Allow",
+       "Principal": {
+        "Service": "lambda.amazonaws.com"
+       }
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "ManagedPolicyArns": [
+     {
+      "Fn::Join": [
+       "",
+       [
+        "arn:",
+        {
+         "Ref": "AWS::Partition"
+        },
+        ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+       ]
+      ]
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/ServiceRole/Resource"
+   }
+  },
+  "PlantShieldTelemetryIngestLambdaServiceRoleDefaultPolicy1ACCF57D": {
+   "Type": "AWS::IAM::Policy",
+   "Properties": {
+    "PolicyDocument": {
+     "Statement": [
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "PlantShieldLatestStateTable974C1840",
+          "Arn"
+         ]
+        }
+       ]
+      },
+      {
+       "Action": [
+        "dynamodb:BatchWriteItem",
+        "dynamodb:PutItem",
+        "dynamodb:UpdateItem",
+        "dynamodb:DeleteItem",
+        "dynamodb:DescribeTable"
+       ],
+       "Effect": "Allow",
+       "Resource": [
+        {
+         "Fn::GetAtt": [
+          "PlantShieldHistoricalTelemetryTableDB9F4ADB",
+          "Arn"
+         ]
+        }
+       ]
+      }
+     ],
+     "Version": "2012-10-17"
+    },
+    "PolicyName": "PlantShieldTelemetryIngestLambdaServiceRoleDefaultPolicy1ACCF57D",
+    "Roles": [
+     {
+      "Ref": "PlantShieldTelemetryIngestLambdaServiceRole07020EA7"
+     }
+    ]
+   },
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/ServiceRole/DefaultPolicy/Resource"
+   }
+  },
+  "PlantShieldTelemetryIngestLambdaC050D50A": {
+   "Type": "AWS::Lambda::Function",
+   "Properties": {
+    "Code": {
+     "S3Bucket": "cdk-hnb659fds-assets-008022254755-ap-south-1",
+     "S3Key": "431c0e9b81beb0266e1a40a2290b7b785af7ed7f2dc7264b4b43b045c5b07ffd.zip"
+    },
+    "Environment": {
+     "Variables": {
+      "AWS_NODEJS_CONNECTION_REUSE_ENABLED": "1"
+     }
+    },
+    "FunctionName": "PlantShieldTelemetryIngest",
+    "Handler": "index.handler",
+    "Role": {
+     "Fn::GetAtt": [
+      "PlantShieldTelemetryIngestLambdaServiceRole07020EA7",
+      "Arn"
+     ]
+    },
+    "Runtime": "nodejs20.x"
+   },
+   "DependsOn": [
+    "PlantShieldTelemetryIngestLambdaServiceRoleDefaultPolicy1ACCF57D",
+    "PlantShieldTelemetryIngestLambdaServiceRole07020EA7"
+   ],
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/Resource",
+    "aws:asset:path": "asset.431c0e9b81beb0266e1a40a2290b7b785af7ed7f2dc7264b4b43b045c5b07ffd",
+    "aws:asset:is-bundled": false,
+    "aws:asset:property": "Code"
+   }
+  },
+  "PlantShieldTelemetryIngestLambdaAllowIotCoreTriggerCD2E0F8F": {
+   "Type": "AWS::Lambda::Permission",
+   "Properties": {
+    "Action": "lambda:InvokeFunction",
+    "FunctionName": {
+     "Fn::GetAtt": [
+      "PlantShieldTelemetryIngestLambdaC050D50A",
+      "Arn"
+     ]
+    },
+    "Principal": "iot.amazonaws.com",
+    "SourceArn": "arn:aws:iot:ap-south-1:008022254755:rule/PlantShieldIngestRule"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldTelemetryIngestLambda/AllowIotCoreTrigger"
+   }
+  },
+  "PlantShieldIngestRule": {
+   "Type": "AWS::IoT::TopicRule",
+   "Properties": {
+    "RuleName": "PlantShieldIngestRule",
+    "TopicRulePayload": {
+     "Actions": [
+      {
+       "Lambda": {
+        "FunctionArn": {
+         "Fn::GetAtt": [
+          "PlantShieldTelemetryIngestLambdaC050D50A",
+          "Arn"
+         ]
+        }
+       }
+      }
+     ],
+     "RuleDisabled": false,
+     "Sql": "SELECT topic(2) AS deviceId, timestamp() AS timestamp, temperature, humidity, soilMoisture, lightIntensity, batteryLevel FROM 'plants/+/telemetry'"
+    }
+   },
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/PlantShieldIngestRule"
+   }
+  },
+  "CDKMetadata": {
+   "Type": "AWS::CDK::Metadata",
+   "Properties": {
+    "Analytics": "v2:deflate64:H4sIAAAAAAAA/01O0QrCMAz8Ft+7qBPEVxV8VabvkrVR4tZWllaRsX+3rS9C4C6XSy411OslLGb4lkqbruq5hfEcUHcqSdfRfBxab5J4wbYntb+5QibVo20NwniITgf2Lo/++YkGyyKpmxSjhbHxv/2CJ9+z/hRfYZOS1RVFKAhsM6QedlF3FHYopNgHyNn+ybqJOb8h8XHQpIo9vXxnd88HjzE8Y5iU84bgIfPXcgOp6tlDmKshusCWoPnhFwVIu8cAAQAA"
+   },
+   "Metadata": {
+    "aws:cdk:path": "PlantShieldInfraStack/CDKMetadata/Default"
+   }
+  }
+ },
+ "Outputs": {
+  "LatestStateTableName": {
+   "Description": "The name of the DynamoDB table storing the latest state for each device",
+   "Value": {
+    "Ref": "PlantShieldLatestStateTable974C1840"
+   }
+  },
+  "HistoricalTelemetryTableName": {
+   "Description": "The name of the DynamoDB table storing the historical timeline data",
+   "Value": {
+    "Ref": "PlantShieldHistoricalTelemetryTableDB9F4ADB"
+   }
+  },
+  "LambdaFunctionArn": {
+   "Description": "The ARN of the telemetry ingestion Lambda function",
+   "Value": {
+    "Fn::GetAtt": [
+     "PlantShieldTelemetryIngestLambdaC050D50A",
+     "Arn"
+    ]
+   }
+  }
+ },
+ "Parameters": {
+  "BootstrapVersion": {
+   "Type": "AWS::SSM::Parameter::Value<String>",
+   "Default": "/cdk-bootstrap/hnb659fds/version",
+   "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+  }
+ },
+ "Rules": {
+  "CheckBootstrapVersion": {
+   "Assertions": [
+    {
+     "Assert": {
+      "Fn::Not": [
+       {
+        "Fn::Contains": [
+         [
+          "1",
+          "2",
+          "3",
+          "4",
+          "5"
+         ],
+         {
+          "Ref": "BootstrapVersion"
+         }
+        ]
+       }
+      ]
+     },
+     "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+    }
+   ]
+  }
+ }
+}

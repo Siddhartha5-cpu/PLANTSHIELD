@@ -1,0 +1,33 @@
+# Python virtual environments
+venv/
+.venv/
+env/
+ENV/
+ai-service/venv/
+backend/venv/
+gemini-advisory/venv/
+
+# Node dependencies
+node_modules/
+frontend/node_modules/
+
+# Environment configurations containing secrets
+.env
+backend/.env
+gemini-advisory/.env
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+frontend/dist/

@@ -1,0 +1,13 @@
+{
+  "app": "node bin/aws-infra.js",
+  "context": {
+    "@aws-cdk/aws-apigateway:usagePlanKeyOrderInsensitiveId": true,
+    "@aws-cdk/core:stackRelativeExports": true,
+    "@aws-cdk/aws-rds:databaseInsensitiveStructureInput": true,
+    "@aws-cdk/aws-rds:preventLogRetentionIdCollision": true,
+    "@aws-cdk/aws-lambda:recognizeVersionProps": true,
+    "@aws-cdk/aws-cloudfront:defaultRedirectBehavior": true,
+    "@aws-cdk/aws-filesystems:enableMutations": true,
+    "@aws-cdk/aws-ecs:disableGlobalReceiverPool": true
+  }
+}
