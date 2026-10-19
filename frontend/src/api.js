@@ -142,7 +142,7 @@ export const fetchAlerts = async () => {
 };
 
 // Central Upload and analysis hub (Routes directly to Backend Orchestrator)
-export const uploadAndDiagnose = async (imageFile, deviceId) => {
+export const uploadAndDiagnose = async (imageFile, deviceId, cropName = "Paddy") => {
   const settings = getSettings();
   
   if (!imageFile) {
@@ -169,6 +169,7 @@ export const uploadAndDiagnose = async (imageFile, deviceId) => {
       const formData = new FormData();
       formData.append("file", imageFile);
       formData.append("deviceId", deviceId);
+      formData.append("cropName", cropName);
 
       console.log(`POSTing leaf to orchestrator: ${settings.fastApiUrl}/analyze...`);
       const response = await fetch(`${settings.fastApiUrl}/analyze`, {

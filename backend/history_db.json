@@ -1,5 +1,38 @@
 [
     {
+        "id": "run-0682508f",
+        "timestamp": "2026-10-19T06:30:59Z",
+        "deviceId": "ESP32-001",
+        "disease": "cedar_apple_rust",
+        "confidence": 0.95,
+        "variety": "Apple",
+        "estimatedAge": 30.0,
+        "riskScore": 39.17,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-8ab918de",
+        "timestamp": "2026-10-09T07:43:32Z",
+        "deviceId": "ESP32-001",
+        "disease": "nutrient_deficiency",
+        "confidence": 0.9,
+        "variety": "brinjal",
+        "estimatedAge": 30.0,
+        "riskScore": 37.67,
+        "riskLevel": "Medium"
+    },
+    {
+        "id": "run-41113f2e",
+        "timestamp": "2026-10-09T07:24:43Z",
+        "deviceId": "ESP32-001",
+        "disease": "iron_deficiency",
+        "confidence": 0.9,
+        "variety": "Eggplant",
+        "estimatedAge": 30.0,
+        "riskScore": 37.67,
+        "riskLevel": "Medium"
+    },
+    {
         "id": "run-17a9285f",
         "timestamp": "2026-07-23T13:00:57Z",
         "deviceId": "ESP32-001",

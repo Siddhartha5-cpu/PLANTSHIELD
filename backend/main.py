@@ -15,7 +15,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("orchestrator")
 
 # Import Clients & Services
-from clients.inference_client import predict_leaf_image, AIServiceConnectionError
+from clients.inference_client import predict_leaf_image, predict_leaf_image_gemini, AIServiceConnectionError
 from clients.sensor_client import fetch_latest_sensors
 from services.risk_service import evaluate_crop_risk
 from services.advisory_service import generate_agronomic_advisory
@@ -50,7 +50,8 @@ async def health_check():
 @app.post("/analyze", response_model=AnalysisReport)
 async def analyze_crop(
     file: UploadFile = File(...),
-    deviceId: str = Form(...)
+    deviceId: str = Form(...),
+    cropName: str = Form("Paddy")
 ):
     """
     Orchestrates the complete PlantShield AI diagnostics pipeline:
@@ -71,10 +72,13 @@ async def analyze_crop(
         
     start_time = time.time()
     
-    # Step 1: Query Local AI Inference Service
+    # Step 1: Query Local AI Inference Service or Gemini Vision
     try:
         image_bytes = await file.read()
-        ai_response = await predict_leaf_image(image_bytes, file.filename)
+        if cropName.strip().lower() in ["paddy", "rice"]:
+            ai_response = await predict_leaf_image(image_bytes, file.filename)
+        else:
+            ai_response = await predict_leaf_image_gemini(image_bytes, file.filename, cropName.strip())
     except AIServiceConnectionError as conn_err:
         logger.error(f"Inference gateway error: {str(conn_err)}")
         raise HTTPException(

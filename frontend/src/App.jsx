@@ -432,6 +432,8 @@ const OverviewPage = ({ setActivePage, latestReport, telemetry, devices, alerts 
 // Leaf Image Upload and Analysis Page
 const DiagnosisPage = ({ latestReport, setLatestReport, setActivePage, devices }) => {
   const [selectedDevice, setSelectedDevice] = useState(devices[0]?.id || "");
+  const [cropName, setCropName] = useState("Paddy");
+  const [customCropName, setCustomCropName] = useState("");
   const [imageFile, setImageFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -448,7 +450,8 @@ const DiagnosisPage = ({ latestReport, setLatestReport, setActivePage, devices }
     if (!imageFile) return;
     setLoading(true);
     try {
-      const result = await uploadAndDiagnose(imageFile, selectedDevice);
+      const finalCrop = cropName === "Other Crop" ? (customCropName.trim() || "Unknown Crop") : cropName;
+      const result = await uploadAndDiagnose(imageFile, selectedDevice, finalCrop);
       setLatestReport(result);
     } catch (err) {
       console.error(err);
@@ -475,6 +478,36 @@ const DiagnosisPage = ({ latestReport, setLatestReport, setActivePage, devices }
               ))}
             </select>
           </div>
+
+          <div className="form-group">
+            <label>Crop Name</label>
+            <select className="input-field" value={cropName} onChange={(e) => setCropName(e.target.value)}>
+              <option value="Paddy">Paddy (Rice)</option>
+              <option value="Tomato">Tomato</option>
+              <option value="Potato">Potato</option>
+              <option value="Apple">Apple</option>
+              <option value="Corn">Corn (Maize)</option>
+              <option value="Wheat">Wheat</option>
+              <option value="Soybean">Soybean</option>
+              <option value="Grape">Grape</option>
+              <option value="Citrus">Citrus</option>
+              <option value="Cotton">Cotton</option>
+              <option value="Other Crop">Other Crop...</option>
+            </select>
+          </div>
+
+          {cropName === "Other Crop" && (
+            <div className="form-group">
+              <label>Specify Custom Crop</label>
+              <input 
+                type="text" 
+                className="input-field" 
+                placeholder="e.g., Mango, Strawberry..." 
+                value={customCropName} 
+                onChange={(e) => setCustomCropName(e.target.value)} 
+              />
+            </div>
+          )}
 
           {!imagePreview ? (
             <label className="upload-zone">
